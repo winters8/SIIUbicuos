@@ -34,7 +34,16 @@ router.put("/:id", function (req, res) {
     function (err, bookmarkinfo) {
       if (err) res.status(500).send(err);
       else res.sendStatus(200);
-    });
+    }
+  );
+});
+
+/* DELETE an existing post */
+router.delete("/:id", function (req, res) {
+  Bookmark.findByIdAndDelete(req.params.id, function (err, postinfo) {
+    if (err) res.status(500).send(err);
+    else res.sendStatus(200);
+  });
 });
 
 module.exports = router;
