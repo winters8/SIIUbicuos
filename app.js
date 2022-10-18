@@ -10,7 +10,6 @@ var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var moviesRouter = require("./routes/movies");
 var bookmarksRouter = require("./routes/bookmarks");
-var usersRouter = require("./routes/users"); // no lo usamos en este ejemplo
 
 var app = express();
 
@@ -34,7 +33,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/movies", moviesRouter);
-app.use("/users", usersRouter); //No lo usamos en este ejemplo
 app.use("/bookmarks", bookmarksRouter); //No lo usamos en este ejemplo
 
 // catch 404 and forward to error handler
