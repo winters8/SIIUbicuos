@@ -1,6 +1,8 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var router = express.Router();
+var debug = require("debug")("moviesApp:server");
+
 
 //Models
 var Bookmark = require("../models/Bookmark.js");
@@ -16,3 +18,5 @@ router.get("/:email", function (req, res) {
       else res.status(200).json(bookmarks);
     });
 });
+
+module.exports = router;

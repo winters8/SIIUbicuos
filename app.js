@@ -3,7 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var debug = require('debug')('smartcityapp:server');
+var debug = require('debug')('moviesApp:server');
 
 var mongoose = require("mongoose");
 
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/movies", moviesRouter);
-app.use("/bookmarks", bookmarksRouter); //No lo usamos en este ejemplo
+app.use("/bookmarks", bookmarksRouter); 
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
