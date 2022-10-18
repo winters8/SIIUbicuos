@@ -3,7 +3,6 @@ var mongoose = require("mongoose");
 var router = express.Router();
 var debug = require("debug")("moviesApp:server");
 
-
 //Models
 var Bookmark = require("../models/Bookmark.js");
 var db = mongoose.connection;
@@ -16,6 +15,25 @@ router.get("/:email", function (req, res) {
     .exec(function (err, bookmarks) {
       if (err) res.status(500).send(err);
       else res.status(200).json(bookmarks);
+    });
+});
+
+/* POST a new bookmark*/
+router.post("/", function (req, res) {
+  Bookmark.create(req.body, function (err, bookmarkinfo) {
+    if (err) res.status(500).send(err);
+    else res.sendStatus(200);
+  });
+});
+
+/* PUT an existing bookmark */
+router.put("/:id", function (req, res) {
+  Bookmark.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    function (err, bookmarkinfo) {
+      if (err) res.status(500).send(err);
+      else res.sendStatus(200);
     });
 });
 
