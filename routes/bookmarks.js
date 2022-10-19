@@ -32,6 +32,7 @@ router.put("/:id", function (req, res) {
     req.params.id,
     req.body,
     function (err, bookmarkinfo) {
+      debug(bookmarkinfo);
       if (err) res.status(500).send(err);
       else res.sendStatus(200);
     }
